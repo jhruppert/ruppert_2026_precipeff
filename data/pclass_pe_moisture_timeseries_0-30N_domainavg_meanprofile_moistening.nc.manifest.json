@@ -1,0 +1,1312 @@
+{
+  "augmentation": {
+    "added_variables": [
+      "mean_pressure_overlap_400_800_hpa",
+      "vertical_advective_moistening_400_800_hpa"
+    ],
+    "configuration": "/glade/work/ruppert/tc-crfrad/analysis/mpas/pclass_add_400_800_moisture_config.json",
+    "configuration_payload": {
+      "diagnostics_root": "/glade/campaign/univ/uokl0049/mpas",
+      "driver_sha256": "577193c63a556694f104f302bfa7702e82d5177f79a0519acbf18d6680884991",
+      "grid_pickle": "/glade/campaign/univ/uokl0049/jruppert/pickle_out/grid_data.pickle",
+      "height_file": "/glade/campaign/mmm/dpm/rberrios/glade_scratch/MPAS_APE/aqua_sstmax10N_ASD/CTL/TC_3km/z.nc",
+      "method_version": "add_exact_400_800_mean_profile_moisture_v1",
+      "new_layer": {
+        "bottom_pa": 80000.0,
+        "name": "400-800_hPa",
+        "top_pa": 40000.0
+      },
+      "raw_templates": {
+        "CLIM_RAD_LW": "/glade/derecho/scratch/rberrios/MPAS_APE/aqua_sstmax10N/CLIM_RAD_LW/TC_3km/diag.{time}.nc",
+        "CTL": "/glade/campaign/mmm/dpm/rberrios/MPAS/aqua_sstmax10N_ASD/CTL/compressed/diag.{time}.nc"
+      },
+      "schema_version": 1,
+      "scientific_config": {
+        "domain": {
+          "latitude_bin_width_degrees": 5.0,
+          "latitude_max_degrees_north": 30.0,
+          "latitude_min_degrees_north": 0.0,
+          "longitude_bin_width_degrees": 30.0
+        },
+        "experiments": [
+          "CTL",
+          "CLIM_RAD_LW"
+        ],
+        "layers": [
+          {
+            "bottom_pressure_hpa": 600.0,
+            "name": "400-600_hPa",
+            "top_pressure_hpa": 400.0
+          },
+          {
+            "bottom_pressure_hpa": null,
+            "name": "surface-100_hPa",
+            "top_pressure_hpa": 100.0
+          }
+        ],
+        "paths": {
+          "diagnostics_root": "/glade/campaign/univ/uokl0049/mpas",
+          "grid_pickle": "/glade/campaign/univ/uokl0049/jruppert/pickle_out/grid_data.pickle",
+          "height_file": "/glade/campaign/mmm/dpm/rberrios/glade_scratch/MPAS_APE/aqua_sstmax10N_ASD/CTL/TC_3km/z.nc",
+          "output_file": "/glade/campaign/univ/uokl0049/mpas/derived/pclass_pe_moisture_timeseries_0-30N_5x30.nc",
+          "raw_diagnostic_templates": {
+            "CLIM_RAD_LW": "/glade/derecho/scratch/rberrios/MPAS_APE/aqua_sstmax10N/CLIM_RAD_LW/TC_3km/diag.{time}.nc",
+            "CTL": "/glade/campaign/mmm/dpm/rberrios/MPAS/aqua_sstmax10N_ASD/CTL/compressed/diag.{time}.nc"
+          },
+          "work_root": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_pe_moisture"
+        },
+        "pclasses": [
+          {
+            "label_index": 0,
+            "name": "DeepC",
+            "source_code": "DC"
+          },
+          {
+            "label_index": 3,
+            "name": "Stratiform",
+            "source_code": "ST"
+          },
+          {
+            "label_index": 4,
+            "name": "Anvil",
+            "source_code": "AN"
+          },
+          {
+            "label_index": 5,
+            "name": "DSA",
+            "source_code": "DSA"
+          }
+        ],
+        "schema_version": 1,
+        "time": {
+          "cadence_hours": 6,
+          "start": "2000-05-01T06:00:00",
+          "stop": "2000-05-11T00:00:00"
+        },
+        "vertical": {
+          "gravity_m_s2": 9.80665,
+          "mass_level_count": 53,
+          "raw_cell_chunk_size": 660211
+        }
+      },
+      "scientific_config_path": "/glade/work/ruppert/tc-crfrad/analysis/mpas/pclass_pe_moisture_config.json",
+      "source_profile_signature": "3a8db76ac5874dc1652b6f9bb87a99e358cf6fe6548029c7a84fa09193daf898",
+      "target_file": "/glade/campaign/univ/uokl0049/mpas/derived/pclass_pe_moisture_timeseries_0-30N_domainavg_meanprofile_moistening.nc",
+      "work_root": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture"
+    },
+    "driver_sha256": "577193c63a556694f104f302bfa7702e82d5177f79a0519acbf18d6680884991",
+    "formula": "sum(tendency_profile * mean(exact_dp_overlap)) * 86400 / g",
+    "git_revision": "b34c19c26d394f79a26951ab463b86dac4f04625",
+    "layer_bottom_pressure_pa": 80000.0,
+    "layer_top_pressure_pa": 40000.0,
+    "method_version": "add_exact_400_800_mean_profile_moisture_v1",
+    "parts": [
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-01_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "a76adb0d87071226a791326057facfd9c8ca6bcfd76cee5111b6b7f199169f67",
+        "time_tag": "2000-05-01_06.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-01_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "b32d4522ce569d4e4956b6255f8ba909e408be69d4366ad3d86e6cc1c67cb7db",
+        "time_tag": "2000-05-01_12.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-01_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "b0e6cca97227ce4cfd52fdba0ec7931af77e6502d1bf711ae0d8e3d9eb347c1d",
+        "time_tag": "2000-05-01_18.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-02_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "ea9cb56f2510c67597b35457139f98ad400284a69eac1851f657e9dd056ac301",
+        "time_tag": "2000-05-02_00.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-02_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "71d8bc3011222625de7984e56fdfa9643939226e01240c1411cfa3cf83dfad41",
+        "time_tag": "2000-05-02_06.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-02_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "f7ee22739088cdfc67c0b70159a0050602487b546987c27b6316cfa8e33cd13a",
+        "time_tag": "2000-05-02_12.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-02_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "3fde3b70b88ad52dd051ecf5023fba8b2e01541b8eeb71a5cce83fb6fb43ca6c",
+        "time_tag": "2000-05-02_18.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-03_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "0fcafe68957244b19cb1eee4c74a22983403189d2ca6b6a9ec75e8010068a002",
+        "time_tag": "2000-05-03_00.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-03_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "d934dfca54f954c9fd6daf0d665a9294efdc0a292fa3a8faf559d8dea462bda0",
+        "time_tag": "2000-05-03_06.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-03_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "43a45ba5a475aa1c208b0a3cd34d7b5543a36b5f0e23a05427ef135193da00f2",
+        "time_tag": "2000-05-03_12.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-03_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "ab24c1a3f97402255efe6cca0104443aae2642042393ef92ba1791f9d104cb8b",
+        "time_tag": "2000-05-03_18.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-04_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "be8e57fb09628d8f956eac1ef02fb280d84553d98d979f6016db2f92d08e9f31",
+        "time_tag": "2000-05-04_00.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-04_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "1048404ac688a9c7628c92f7a5407cc9e2a87193480b02d8b5de3357394891a6",
+        "time_tag": "2000-05-04_06.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-04_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "28a2d7bf75158db30e1c70643996f09a252ab1d781716da032c30a99c4e00d98",
+        "time_tag": "2000-05-04_12.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-04_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "a9f3b573fa226eebbd23590ef8401f729041741e858f02806cc6b367a39099db",
+        "time_tag": "2000-05-04_18.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-05_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "7e201bce2096c296cb2ee76cfbe92f2027af4e5ba5657d7f08a594bfbc64488d",
+        "time_tag": "2000-05-05_00.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-05_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "143a0f718828dc66c7f4a59285035ae73119e7113274b7594c91fb9eba961fbf",
+        "time_tag": "2000-05-05_06.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-05_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "85d627e564b733cc722893d4cbe26bd1e46b827d8e5e2e98559a669ab6457e07",
+        "time_tag": "2000-05-05_12.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-05_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "6ee06e3e388aff6233029d761005024263e35bf56bdd9a50ba6a73c42b7188fa",
+        "time_tag": "2000-05-05_18.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-06_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "46901d88d3f4bb140a77c60a0ee48a1d1844c864fda926d854ec38ce349099d0",
+        "time_tag": "2000-05-06_00.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-06_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "43dc14caa4ae40b121238812299d9995eafcc1906c653f95775fb4c6e49e41d3",
+        "time_tag": "2000-05-06_06.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-06_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "b85b85fce66a24ccb660470b6d5af88fce0c9d323cd22fff26ba4c714408f704",
+        "time_tag": "2000-05-06_12.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-06_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "ea5f2be2ef7c631c7fe0234b85bbe7d80a6ec73ed2377e6fd9e1437118b8751e",
+        "time_tag": "2000-05-06_18.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-07_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "f7fc97be33c5ef941196c64fc5deb84700bedd29e042fa45cae3b9ccebd68dea",
+        "time_tag": "2000-05-07_00.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-07_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "b465a8ccd2a4a020122314220b4a8ee32894e7f50ad8b0699eb2e61c0dfcac77",
+        "time_tag": "2000-05-07_06.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-07_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "b2f19a2152dbc421beb6970aef9a466bb796ff24442e14cc124d6736389f1bd2",
+        "time_tag": "2000-05-07_12.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-07_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "7b8526ff49f4e2f1cece18a7bb5a5f74312e194d2e22f43b7bae250a8ae23c40",
+        "time_tag": "2000-05-07_18.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-08_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "927c40bab51e6ed9ad9501b472f53c055c518dd34d5579e778f47ce56a3cac11",
+        "time_tag": "2000-05-08_00.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-08_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "12a5778cec96e842b1a8afef3486ef5d3bb53a74fbc5a1fcf9db6d9e67d066da",
+        "time_tag": "2000-05-08_06.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-08_12.00.00.nc",
+        "read_strategy": "qv_w_pressure_common_mask",
+        "sha256": "cdacc0e821006960cbc0838ea505ab39f4005f983017336b33b7deb1bb5fadb2",
+        "time_tag": "2000-05-08_12.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-08_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "778e13f8931e92cc23fc7772c63e3d38c8d8618d0443fdca8d4efb2f9906d099",
+        "time_tag": "2000-05-08_18.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-09_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "36d9a6a4e5915218cf8cd29a37835d1ae8508a68c851eda8b4169aa4ff75bb91",
+        "time_tag": "2000-05-09_00.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-09_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "128d3b2da671c91bc4a75f058218ea1b8be1e65412e12a77abd7c37d6115803f",
+        "time_tag": "2000-05-09_06.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-09_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "3d622085ed8f10717739b65754f3dfff7106671d8b39a5656360bff103103417",
+        "time_tag": "2000-05-09_12.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-09_18.00.00.nc",
+        "read_strategy": "qv_w_pressure_common_mask",
+        "sha256": "7e88d2c06afcb0f337ee8f017c912c507fe49a8d99527034bdf66a4bf3542ff2",
+        "time_tag": "2000-05-09_18.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-10_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "2346240ab341259f450c75c6a14808fd642f92e23045f173338df836404d03da",
+        "time_tag": "2000-05-10_00.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-10_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "65851658e568c24ccfad8a08adf61ebd47b7250c29d1df977447ee42669fedcb",
+        "time_tag": "2000-05-10_06.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-10_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "0c2346656ca5a07c80d4c80f403136d2cb606da1bbb779b6cde4fa67d8f57805",
+        "time_tag": "2000-05-10_12.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-10_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "7f1c06de78645d9b79bca5c97abf3f218d70abb1a5422d142a0d548004b7155b",
+        "time_tag": "2000-05-10_18.00.00"
+      },
+      {
+        "experiment": "CTL",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CTL/part_CTL_2000-05-11_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "ee8d19c3722c4fe9f19ae3dda9a3f579f6cd2646ce4674cce0bddacf20bbd455",
+        "time_tag": "2000-05-11_00.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-01_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "0085fcab54ef5ac306ed748c5864f00f881724aae79b8082d5272fbc344532cb",
+        "time_tag": "2000-05-01_06.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-01_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "e1c8a3fb067de72ab2ede5ed2b030061bf74ee5c6b9df969ad9fed1d9412eb5b",
+        "time_tag": "2000-05-01_12.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-01_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "e382fcd131cff8a9c04b8aa5f8cd7f18b755092c29fa299c04088d231a836386",
+        "time_tag": "2000-05-01_18.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-02_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "5707b77e7f7edbb736a1a1f8c8e63cf4f1596244faa2d19319d1ec5b954f3ed8",
+        "time_tag": "2000-05-02_00.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-02_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "5068c2cba92b463ad4482183d3fea9fb25e429b2f94f4cbcbfc49197960d122c",
+        "time_tag": "2000-05-02_06.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-02_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "da79a1351d152fc6051b564770adc075b12e01e4ed4be3a512361709e4bc005d",
+        "time_tag": "2000-05-02_12.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-02_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "a9163ec303c9cf03430b9274aad5b7e48d4d68539c109529b63abbd394161b9e",
+        "time_tag": "2000-05-02_18.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-03_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "bf3eac866cc11499504b95e716aefc1297e75c4dc9a3afa93d65cecb4f25002b",
+        "time_tag": "2000-05-03_00.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-03_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "c57a0d620f8c8b5f00faf3b82f3776d52506f38c7f3e7df69791d4a11ae9e8f1",
+        "time_tag": "2000-05-03_06.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-03_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "fa46dfcbf6dfb327987663ad389930a1782f1512965337bb86c0f73b310907ec",
+        "time_tag": "2000-05-03_12.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-03_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "c4c018b2e6e2300d30f2886043897a21284e25aa1ad04dbfd1c83bee3e574de7",
+        "time_tag": "2000-05-03_18.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-04_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "9a3fb916df0833d7d3527d022ab28bd5cff86edd9eea2c189d84bb6401236047",
+        "time_tag": "2000-05-04_00.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-04_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "96289d4d4129724d363ea938423568724b9ae029eeceb8e40a83672d52500f79",
+        "time_tag": "2000-05-04_06.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-04_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "849432f88db27a73eb51cc353e6a8818f99d9405ff1c0b4e26892304d67588d6",
+        "time_tag": "2000-05-04_12.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-04_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "4d8b946db861c9642eba1f3d507e93ce5cb7f53c5fe5f440a3d8997e6b244124",
+        "time_tag": "2000-05-04_18.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-05_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "fd6d8eb66a6da4a0001a21dfcdbf2e9be30e6ca4129dea878bd57f4d354f0a18",
+        "time_tag": "2000-05-05_00.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-05_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "6c5692930b47e5e9b36a5429ebbde562da551eb6ac6c57a8e59655a6f881092c",
+        "time_tag": "2000-05-05_06.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-05_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "b60e4d99f21d5782da4a9f16bbc3dc073b009b5866cc251e21edcd0a977123d7",
+        "time_tag": "2000-05-05_12.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-05_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "25d35463834085a506449150f862addd1e3a2f1a94318d3b370e559f0df25534",
+        "time_tag": "2000-05-05_18.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-06_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "981ec8a70cf616bfa830601b47d304b1d4c69b5b242bd792b05165f9cecac51a",
+        "time_tag": "2000-05-06_00.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-06_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "4fb7c235454d40af1580cf72f94748c2054883dc8fb36b39ab070a772683067f",
+        "time_tag": "2000-05-06_06.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-06_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "b0111df85a223b801426e58960369bba8be31968172b337f5ecf91baad0d8f4a",
+        "time_tag": "2000-05-06_12.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-06_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "44c33ab6369ed558f3786473cb37c98e3a829c6875037243848a29e9b1de0c06",
+        "time_tag": "2000-05-06_18.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-07_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "e28cc43b42462780cce10bdebfa1a924b776368ec543ab4c10135319bc617d19",
+        "time_tag": "2000-05-07_00.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-07_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "b638a34ac85caa7904bbf8b02deae77a5cb38ec68dd684d8d2ae1a5e2b45190a",
+        "time_tag": "2000-05-07_06.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-07_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "b692efa851c38c37dacd51044fd3f8436fc4d67449a4dd87cbe59477e5c1be76",
+        "time_tag": "2000-05-07_12.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-07_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "1d356ce429e7d97e649dd08123a763cee639d29541325a6db762068b54b7f319",
+        "time_tag": "2000-05-07_18.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-08_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "87808e9ac5b3c367568128151fd0b8b9b38ada8302f3948ebaedc14d2fa94a7a",
+        "time_tag": "2000-05-08_00.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-08_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "26506180993529a538d70bfb1c195824df26048240545bb771b6d04aacb5e89c",
+        "time_tag": "2000-05-08_06.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-08_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "6c8767e02d96fe9543c798cb63ea679425c34bfc18c41cde9af7f67356ec40f1",
+        "time_tag": "2000-05-08_12.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-08_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "58e36325f787ad4e8b3b8fba14326f3f7bd2c1cdbde6f3ecc5139d1b1859a011",
+        "time_tag": "2000-05-08_18.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-09_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "b54c473d1a0860d617dad3f6d9b5463a240b958173959c12f3051cd05aae0823",
+        "time_tag": "2000-05-09_00.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-09_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "df70c6e7cbfa472a283e9daed9d102649c1f28708ff083511eec9b3a635e7d41",
+        "time_tag": "2000-05-09_06.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-09_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "6d2631b8588a43df1b239eb54cef9667741ff4d698e8ad8f6b6e9abd0012e6eb",
+        "time_tag": "2000-05-09_12.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-09_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "4b70c631e1946c1a47632941930532b8ce7870ef319c0ea8e39450749813383a",
+        "time_tag": "2000-05-09_18.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-10_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "59fd8fd49bb203ff12bd7dd3c529bccd8670bcd6669ca25abe189199dd1391b2",
+        "time_tag": "2000-05-10_00.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-10_06.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "399a757e45c16b8e98661fd407f551d5b8934a16a8bb5c77068fb72d374b5e4e",
+        "time_tag": "2000-05-10_06.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-10_12.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "e8304d4cdad29799468ef3e68680beed4fb2dc5c88ce3a4d3b3a5ec58e0200ed",
+        "time_tag": "2000-05-10_12.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-10_18.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "94dbd5bf241f04b4dcc4d647aff9866705be1430e52b8728a8fbc0f7644100cb",
+        "time_tag": "2000-05-10_18.00.00"
+      },
+      {
+        "experiment": "CLIM_RAD_LW",
+        "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_add_400_800_moisture/run_eaaaf42c8c5cc2c6/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-11_00.00.00.nc",
+        "read_strategy": "pressure_only",
+        "sha256": "057b4438baaf7c4eeccae2f9657e84cb565323c98f03fa93686e8e8e976e4263",
+        "time_tag": "2000-05-11_00.00.00"
+      }
+    ],
+    "previous_file_sha256": "222e7777025ef4819b0f4d04dcad7f68f3cbbb899280ca3ffd11725b8536cb4c",
+    "prior_original_file_sha256": "222e7777025ef4819b0f4d04dcad7f68f3cbbb899280ca3ffd11725b8536cb4c",
+    "source_profile_signature": "3a8db76ac5874dc1652b6f9bb87a99e358cf6fe6548029c7a84fa09193daf898"
+  },
+  "augmentation_signature": "eaaaf42c8c5cc2c665b1171f5ce61a4b6ca1d61d4b65c4cc180997561a5a1ebc",
+  "base_domain_file": "/glade/campaign/univ/uokl0049/mpas/derived/pclass_pe_moisture_timeseries_0-30N_domainavg.nc",
+  "base_domain_sha256": "9330b500f116a8c2546a396df011d8fa263cd99fdcf9ed55000689cc79359a56",
+  "configuration_payload": {
+    "base_domain_file": "/glade/campaign/univ/uokl0049/mpas/derived/pclass_pe_moisture_timeseries_0-30N_domainavg.nc",
+    "base_domain_sha256": "9330b500f116a8c2546a396df011d8fa263cd99fdcf9ed55000689cc79359a56",
+    "diagnostics_root": "/glade/campaign/univ/uokl0049/mpas",
+    "driver_sha256": "a7c3edd46dbfbd512f16c9f39855a431d3d852e4269ab15e04591cb11f49db19",
+    "grid_pickle": "/glade/campaign/univ/uokl0049/jruppert/pickle_out/grid_data.pickle",
+    "height_file": "/glade/campaign/mmm/dpm/rberrios/glade_scratch/MPAS_APE/aqua_sstmax10N_ASD/CTL/TC_3km/z.nc",
+    "method_version": "domain_mean_qv_w_profile_v1",
+    "output_file": "/glade/campaign/univ/uokl0049/mpas/derived/pclass_pe_moisture_timeseries_0-30N_domainavg_meanprofile_moistening.nc",
+    "raw_templates": {
+      "CLIM_RAD_LW": "/glade/derecho/scratch/rberrios/MPAS_APE/aqua_sstmax10N/CLIM_RAD_LW/TC_3km/diag.{time}.nc",
+      "CTL": "/glade/campaign/mmm/dpm/rberrios/MPAS/aqua_sstmax10N_ASD/CTL/compressed/diag.{time}.nc"
+    },
+    "schema_version": 1,
+    "scientific_config": {
+      "domain": {
+        "latitude_bin_width_degrees": 5.0,
+        "latitude_max_degrees_north": 30.0,
+        "latitude_min_degrees_north": 0.0,
+        "longitude_bin_width_degrees": 30.0
+      },
+      "experiments": [
+        "CTL",
+        "CLIM_RAD_LW"
+      ],
+      "layers": [
+        {
+          "bottom_pressure_hpa": 600.0,
+          "name": "400-600_hPa",
+          "top_pressure_hpa": 400.0
+        },
+        {
+          "bottom_pressure_hpa": null,
+          "name": "surface-100_hPa",
+          "top_pressure_hpa": 100.0
+        }
+      ],
+      "paths": {
+        "diagnostics_root": "/glade/campaign/univ/uokl0049/mpas",
+        "grid_pickle": "/glade/campaign/univ/uokl0049/jruppert/pickle_out/grid_data.pickle",
+        "height_file": "/glade/campaign/mmm/dpm/rberrios/glade_scratch/MPAS_APE/aqua_sstmax10N_ASD/CTL/TC_3km/z.nc",
+        "output_file": "/glade/campaign/univ/uokl0049/mpas/derived/pclass_pe_moisture_timeseries_0-30N_5x30.nc",
+        "raw_diagnostic_templates": {
+          "CLIM_RAD_LW": "/glade/derecho/scratch/rberrios/MPAS_APE/aqua_sstmax10N/CLIM_RAD_LW/TC_3km/diag.{time}.nc",
+          "CTL": "/glade/campaign/mmm/dpm/rberrios/MPAS/aqua_sstmax10N_ASD/CTL/compressed/diag.{time}.nc"
+        },
+        "work_root": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_pe_moisture"
+      },
+      "pclasses": [
+        {
+          "label_index": 0,
+          "name": "DeepC",
+          "source_code": "DC"
+        },
+        {
+          "label_index": 3,
+          "name": "Stratiform",
+          "source_code": "ST"
+        },
+        {
+          "label_index": 4,
+          "name": "Anvil",
+          "source_code": "AN"
+        },
+        {
+          "label_index": 5,
+          "name": "DSA",
+          "source_code": "DSA"
+        }
+      ],
+      "schema_version": 1,
+      "time": {
+        "cadence_hours": 6,
+        "start": "2000-05-01T06:00:00",
+        "stop": "2000-05-11T00:00:00"
+      },
+      "vertical": {
+        "gravity_m_s2": 9.80665,
+        "mass_level_count": 53,
+        "raw_cell_chunk_size": 660211
+      }
+    },
+    "scientific_config_path": "/glade/work/ruppert/tc-crfrad/analysis/mpas/pclass_pe_moisture_config.json",
+    "work_root": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture"
+  },
+  "configuration_signature": "32f6457a6f653ffeb80107d7609b1087bd85135c94cc64a674cdd711050e9f58",
+  "created_utc": "2026-08-01T09:26:46.972998+00:00",
+  "dimensions": {
+    "bounds": 2,
+    "experiment": 2,
+    "interface_level": 54,
+    "layer": 2,
+    "level": 53,
+    "pclass": 4,
+    "time": 40
+  },
+  "git_revision": "b34c19c26d394f79a26951ab463b86dac4f04625",
+  "method_version": "domain_mean_qv_w_profile_v1",
+  "output_file": "/glade/campaign/univ/uokl0049/mpas/derived/pclass_pe_moisture_timeseries_0-30N_domainavg_meanprofile_moistening.nc",
+  "parts": [
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-01_06.00.00.nc",
+      "sha256": "2d1711a11b0066d3cb94dee37d4e0a0d50e923d9f6728b5facd58a4af6a93dd4",
+      "time_tag": "2000-05-01_06.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-01_12.00.00.nc",
+      "sha256": "b79e4af753f2a648b3f100ba91c0cef4395b205c56815f5a42ee5afb26b7e6be",
+      "time_tag": "2000-05-01_12.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-01_18.00.00.nc",
+      "sha256": "be151b6db99e2ba8a7a3d7b7e8afb1944e0b67ee6051ed5b32a9228c37c62317",
+      "time_tag": "2000-05-01_18.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-02_00.00.00.nc",
+      "sha256": "bc789e1e953a1e31af78a75e75794ff9eb49b8b14939b4e3b2978cb99314af6f",
+      "time_tag": "2000-05-02_00.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-02_06.00.00.nc",
+      "sha256": "4cfc48e22d4c8a48624c8a2a2ed277de2df6f45f9d0941b930d1bb8a4bd81d8b",
+      "time_tag": "2000-05-02_06.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-02_12.00.00.nc",
+      "sha256": "5cb6c386acf4175e084a1772be9af612eec9dcb606a8c4879bc0e4db7a42271a",
+      "time_tag": "2000-05-02_12.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-02_18.00.00.nc",
+      "sha256": "bbaff5be94d104d5a41e8f0674b4f44f1e705dcf1a57b8244a2c1e9ce742d8ff",
+      "time_tag": "2000-05-02_18.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-03_00.00.00.nc",
+      "sha256": "ddf9ee6a0d23987abaf93ac14159895ca6c281907c65672bb9e8737fb392e9f3",
+      "time_tag": "2000-05-03_00.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-03_06.00.00.nc",
+      "sha256": "831e2145001238a161b6c7f2158b964a922ee6c4350918cbf7f9f53d5a70f798",
+      "time_tag": "2000-05-03_06.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-03_12.00.00.nc",
+      "sha256": "aa8d063d5cd19044396af07808113e6a442263f10642810fdcc4e8f0e2e2cba0",
+      "time_tag": "2000-05-03_12.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-03_18.00.00.nc",
+      "sha256": "f031f37a4bb67a39a48de64b095e249b1233bd91296716c8fd44f9743f147910",
+      "time_tag": "2000-05-03_18.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-04_00.00.00.nc",
+      "sha256": "b19db0e89e4564cb81d530cafb3178d49f81700fbe6c66379e4b02c6a2997eee",
+      "time_tag": "2000-05-04_00.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-04_06.00.00.nc",
+      "sha256": "2bde4a2ded380ed1c5032d54bee49ae318fde7f9e2839889a46561b2f1264ab9",
+      "time_tag": "2000-05-04_06.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-04_12.00.00.nc",
+      "sha256": "f312ec092becfd44b4497d847022911faa9ad990683fb1c4fc3639dd412ed2b6",
+      "time_tag": "2000-05-04_12.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-04_18.00.00.nc",
+      "sha256": "fef358693241add29f0b14013a2510b5f38c4d6602ccd71b83e6558324f9ab76",
+      "time_tag": "2000-05-04_18.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-05_00.00.00.nc",
+      "sha256": "bb56bd078960aa980066af1be967e61452116645006cd8cfb2868bf030fe37ce",
+      "time_tag": "2000-05-05_00.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-05_06.00.00.nc",
+      "sha256": "7482b1340857dc52cc8ecbdc92789ca3c5e11c805421873df6d8aa3fd4e2fe62",
+      "time_tag": "2000-05-05_06.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-05_12.00.00.nc",
+      "sha256": "4152c5242425323fdb268f11ab5cf946a03f2664709faba4c633e835c8e2cb32",
+      "time_tag": "2000-05-05_12.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-05_18.00.00.nc",
+      "sha256": "7845f90608f6d7357fd6eb86162f28f3e8141a77a0dee552bd0aeac798800b4e",
+      "time_tag": "2000-05-05_18.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-06_00.00.00.nc",
+      "sha256": "da2dade568c7d0eae17d1a19ab59887e583e4c92b45adfeafcba45d1035a5462",
+      "time_tag": "2000-05-06_00.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-06_06.00.00.nc",
+      "sha256": "7418acec809f43c0c90b467b0a83ac288ed53dc732ef87ca1a56dfbec1864c6c",
+      "time_tag": "2000-05-06_06.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-06_12.00.00.nc",
+      "sha256": "2d0d029802c217245058a4ee0502e4c1819c037fd9b6abf727e2cd18959d3654",
+      "time_tag": "2000-05-06_12.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-06_18.00.00.nc",
+      "sha256": "8cf9cfbb6a5e87e826b63d36dbee2946b60aab7b81e61509a5c476d024e1b110",
+      "time_tag": "2000-05-06_18.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-07_00.00.00.nc",
+      "sha256": "73da1188d96454733a3d32f81de5f3ca6f9094abde9d1968fc3e42d4706cd9c9",
+      "time_tag": "2000-05-07_00.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-07_06.00.00.nc",
+      "sha256": "9a2f6e5f72abaa70aeb1df17eda213ba1f4b86640a3da11a71e22ade23d6b39c",
+      "time_tag": "2000-05-07_06.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-07_12.00.00.nc",
+      "sha256": "843208df00b0c9d8ebf01f201df344a7c4d0fecb8c7f64913f67b36e5bd8fe5d",
+      "time_tag": "2000-05-07_12.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-07_18.00.00.nc",
+      "sha256": "5477e9b72c085f71ad86820ead0c8b2db5b2f2e75f5fee13b7ada1bc7918717d",
+      "time_tag": "2000-05-07_18.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-08_00.00.00.nc",
+      "sha256": "01dc7e82000bcdf0a17bc59a0d23e308e567e1471972e39fff14c728773d5c3e",
+      "time_tag": "2000-05-08_00.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-08_06.00.00.nc",
+      "sha256": "f892fd5c3e7e1a2103962cc0d7a49acea59771e9c5c066d7f29edab5b91d6213",
+      "time_tag": "2000-05-08_06.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-08_12.00.00.nc",
+      "sha256": "c72cb9dc77d0daa83f5671028257d72dcbab03a0a50c13af2308a2bdf7de05f6",
+      "time_tag": "2000-05-08_12.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-08_18.00.00.nc",
+      "sha256": "c6af0e146aa978fe1a51b524c4fb12df102849f2682cdf219d491b9300a1f664",
+      "time_tag": "2000-05-08_18.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-09_00.00.00.nc",
+      "sha256": "073748f3e42e65a4fb8aeb7d55eb094b316e731ee6ee71268661d989b063b715",
+      "time_tag": "2000-05-09_00.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-09_06.00.00.nc",
+      "sha256": "1c199baf20c4baec1b614abac7f5d5e8733100147d8227ed9550616353fab6d6",
+      "time_tag": "2000-05-09_06.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-09_12.00.00.nc",
+      "sha256": "67061ea8c06c66d7693052f5765b00be39bd32e91e95232782743b681b4de878",
+      "time_tag": "2000-05-09_12.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-09_18.00.00.nc",
+      "sha256": "2ffcf4043bee2ad61f99336e9ad67c363a30f1484c48db63d9f091ac11a68698",
+      "time_tag": "2000-05-09_18.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-10_00.00.00.nc",
+      "sha256": "43b8513d5b5d6c3ef6546015b01542ae260745fbdbe3766c0635244a95477cac",
+      "time_tag": "2000-05-10_00.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-10_06.00.00.nc",
+      "sha256": "7680438f0c6051f19457b6e475d7f2b264f6d3be6721c88f808079830d6fccab",
+      "time_tag": "2000-05-10_06.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-10_12.00.00.nc",
+      "sha256": "c4c29c7dd0a7494ae69a097ca3430267607bd1ac5ba98572a849ade579b79804",
+      "time_tag": "2000-05-10_12.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-10_18.00.00.nc",
+      "sha256": "c9c19199e52fbeaf60ddde91a3cbb9802691ea2d1f69db51d1f04f5f42126339",
+      "time_tag": "2000-05-10_18.00.00"
+    },
+    {
+      "experiment": "CTL",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CTL/part_CTL_2000-05-11_00.00.00.nc",
+      "sha256": "cfe3ef6d826f55e93cf495ce60383045f72e5a8047b2824c743268e22ce7d81f",
+      "time_tag": "2000-05-11_00.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-01_06.00.00.nc",
+      "sha256": "32fb02ceb03f3de98e5ff899164845057660d2cc9f17e367c1432b940e005bb1",
+      "time_tag": "2000-05-01_06.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-01_12.00.00.nc",
+      "sha256": "02c29592668912171d1d1f7ba300c65589604aaebf5d24fad250c85bf7d6ae14",
+      "time_tag": "2000-05-01_12.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-01_18.00.00.nc",
+      "sha256": "0a08552d4576fb147d843b8864ab3703487e61b58599b42d111cab34065254fc",
+      "time_tag": "2000-05-01_18.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-02_00.00.00.nc",
+      "sha256": "4cdbe920af2b258d1782d8b65047f3fc06990e8a1167b1e1327f798f10ae1c9b",
+      "time_tag": "2000-05-02_00.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-02_06.00.00.nc",
+      "sha256": "7f68415acc5e1c76eeca94e8577cf162bdca81f22eb61e2022547dc1284e513d",
+      "time_tag": "2000-05-02_06.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-02_12.00.00.nc",
+      "sha256": "9e29df946b87b1715b3f0aa3a02066787dd138db97316b94c8d89109aa0100b3",
+      "time_tag": "2000-05-02_12.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-02_18.00.00.nc",
+      "sha256": "ea83f148f21d2e21f778dc9f5861096c99b54dc1a153e625bcd5137424a43673",
+      "time_tag": "2000-05-02_18.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-03_00.00.00.nc",
+      "sha256": "1e4b2b9e1818883e70dba6383e449807242d3cd2c6e5a5c14ff1d5b675feb63e",
+      "time_tag": "2000-05-03_00.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-03_06.00.00.nc",
+      "sha256": "2b4fa963f176926dc81758a837203224350f515d5e4e1694ac6427b692d849f2",
+      "time_tag": "2000-05-03_06.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-03_12.00.00.nc",
+      "sha256": "a499cc484ea0613c771a09c2c1e08a9b9418220448e0c6761e78ef364ba7f224",
+      "time_tag": "2000-05-03_12.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-03_18.00.00.nc",
+      "sha256": "2200cdbe495b9a3257f24c00b9d5977b3b9069747afba98989f27b370421633c",
+      "time_tag": "2000-05-03_18.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-04_00.00.00.nc",
+      "sha256": "f7537eaf6416b132bf624a0c3f4e53fd70c212d3b8e6b545923cf7eec415507e",
+      "time_tag": "2000-05-04_00.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-04_06.00.00.nc",
+      "sha256": "2a6309095fb856b8561acb39f6eafbe12f63aa8edaf9655d81bb601a2b03f195",
+      "time_tag": "2000-05-04_06.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-04_12.00.00.nc",
+      "sha256": "047ec0bb5a31bf8820816639ff971f12292f0ae4ecec980aa6bb3e1d73e7760c",
+      "time_tag": "2000-05-04_12.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-04_18.00.00.nc",
+      "sha256": "99ac349660d37cf6a7b34906e1d8eb54682569e6e9a05df6a0a2a1601493e253",
+      "time_tag": "2000-05-04_18.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-05_00.00.00.nc",
+      "sha256": "5b83c60763a0d59de6e9025776886e199ab25b8c0165ff0a23a0882aa89669b4",
+      "time_tag": "2000-05-05_00.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-05_06.00.00.nc",
+      "sha256": "50bbc4b74be6ff386a33c7c8b2e402956cfb8153dfa9f813057d3fda23b2d2c6",
+      "time_tag": "2000-05-05_06.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-05_12.00.00.nc",
+      "sha256": "a4306d6a5c6ca24356036e1201496b25d44234829c6cf3f0426cb49b51782ecc",
+      "time_tag": "2000-05-05_12.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-05_18.00.00.nc",
+      "sha256": "93d59c1fc273783a8cfa1c4be6abe1a7a819b751c8b2f05043fe7c2eb073d3f3",
+      "time_tag": "2000-05-05_18.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-06_00.00.00.nc",
+      "sha256": "6eeae33c3d418640e5cbe03ccd5bd64e99d8111d87036079382b5bdee4c806f3",
+      "time_tag": "2000-05-06_00.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-06_06.00.00.nc",
+      "sha256": "59206710fd239c56f7d2c1d59409ff00a6fce0931554bc9a4eec093d1482d20d",
+      "time_tag": "2000-05-06_06.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-06_12.00.00.nc",
+      "sha256": "49162284db9698e62f7216e652c4fa9f54a79706704ccdb03946fca49045cc03",
+      "time_tag": "2000-05-06_12.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-06_18.00.00.nc",
+      "sha256": "4d98ad2259e5a9374fadd66f4ba81d249fa4d675e01b4597e67077ae4ee758cf",
+      "time_tag": "2000-05-06_18.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-07_00.00.00.nc",
+      "sha256": "271ced5455ae9867709c5a70d131ee05fc83e6a68ab59b4ec02dcbbd760ef983",
+      "time_tag": "2000-05-07_00.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-07_06.00.00.nc",
+      "sha256": "8a1a0f2c74f70f2993609f2e4183fd3edcc0d0f4505a0daf7dd830594351f519",
+      "time_tag": "2000-05-07_06.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-07_12.00.00.nc",
+      "sha256": "a33d57fb8b1293ae65be763940e73a2c306d3672db045797bd0e4932935fa4d4",
+      "time_tag": "2000-05-07_12.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-07_18.00.00.nc",
+      "sha256": "61dfa97a122445cd0cf9c1b01b23c01ad1afc29cf985067ac5a2cf607b691038",
+      "time_tag": "2000-05-07_18.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-08_00.00.00.nc",
+      "sha256": "8cdd967fcf780c2847843bac742933db65c573c9fbce69d75c79274eefa4e987",
+      "time_tag": "2000-05-08_00.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-08_06.00.00.nc",
+      "sha256": "21368683c60180dd456c35c1d1865f9eeada1ca7013d7f2295d5ecea216c3cce",
+      "time_tag": "2000-05-08_06.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-08_12.00.00.nc",
+      "sha256": "2aec71223145e394a06ba064fe4f2c7a97d6f5ce2b47bc4e8a7e6aa1f285b9f5",
+      "time_tag": "2000-05-08_12.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-08_18.00.00.nc",
+      "sha256": "1c94f73390ff818004e1be40426f6022c11db7073cf3f6bc0c5279d7bb645dd1",
+      "time_tag": "2000-05-08_18.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-09_00.00.00.nc",
+      "sha256": "d3c9186ece483bd2ce7d63f25d60e4e6c19f10104fc7480de3c61997b1558e05",
+      "time_tag": "2000-05-09_00.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-09_06.00.00.nc",
+      "sha256": "a6db805bfcb189d845eabe586347a72a45d3f12ace3b824ac5c69e490f8bdd05",
+      "time_tag": "2000-05-09_06.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-09_12.00.00.nc",
+      "sha256": "40cc0c93f858a46c278a549f872224e83e89fdb2feaa533af3e07728c47c927d",
+      "time_tag": "2000-05-09_12.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-09_18.00.00.nc",
+      "sha256": "777d6b5fb067436503b5851c97ddd1a587d3c2b0c84afe86fa55b1a572e69aa2",
+      "time_tag": "2000-05-09_18.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-10_00.00.00.nc",
+      "sha256": "dff40db993ef04644f7797a08af56f373f2d70cc65be931ea4ad3d8a65fad916",
+      "time_tag": "2000-05-10_00.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-10_06.00.00.nc",
+      "sha256": "39ee6fd4a7110635bc4e33669820d7ae7e07b88b7895d802dc9878b556ad1f19",
+      "time_tag": "2000-05-10_06.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-10_12.00.00.nc",
+      "sha256": "3c69f678cea7fbd94fb11cd39060ad2bdd8254ca6c248842a5a8c3ecfc47825c",
+      "time_tag": "2000-05-10_12.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-10_18.00.00.nc",
+      "sha256": "9aa86905735329b1d39d3a6b96b1d7a007078badccfae131e40380f88edec8df",
+      "time_tag": "2000-05-10_18.00.00"
+    },
+    {
+      "experiment": "CLIM_RAD_LW",
+      "path": "/glade/derecho/scratch/ruppert/tmp/tc-crfrad/mpas_pclass_domain_profile_moisture/run_32f6457a6f653ffe/parts/CLIM_RAD_LW/part_CLIM_RAD_LW_2000-05-11_00.00.00.nc",
+      "sha256": "5f60db311dd8560ee9c4284de01d77e753c17a124dd4ad45fe20aca9f050466d",
+      "time_tag": "2000-05-11_00.00.00"
+    }
+  ],
+  "schema_version": 1,
+  "sha256": "e7801f5c9143143e786c164985e084accc0522098ba51c94329bdd1c6fe6694c",
+  "size_bytes": 467648,
+  "status": "complete",
+  "support_exclusions": {
+    "CLIM_RAD_LW": {
+      "Anvil": {
+        "excluded_area_m2_max_per_time": 0.0,
+        "excluded_area_m2_total_over_times": 0.0,
+        "excluded_cell_count_max_per_time": 0,
+        "excluded_cell_count_total_over_times": 0
+      },
+      "DSA": {
+        "excluded_area_m2_max_per_time": 0.0,
+        "excluded_area_m2_total_over_times": 0.0,
+        "excluded_cell_count_max_per_time": 0,
+        "excluded_cell_count_total_over_times": 0
+      },
+      "DeepC": {
+        "excluded_area_m2_max_per_time": 0.0,
+        "excluded_area_m2_total_over_times": 0.0,
+        "excluded_cell_count_max_per_time": 0,
+        "excluded_cell_count_total_over_times": 0
+      },
+      "Stratiform": {
+        "excluded_area_m2_max_per_time": 0.0,
+        "excluded_area_m2_total_over_times": 0.0,
+        "excluded_cell_count_max_per_time": 0,
+        "excluded_cell_count_total_over_times": 0
+      }
+    },
+    "CTL": {
+      "Anvil": {
+        "excluded_area_m2_max_per_time": 0.0,
+        "excluded_area_m2_total_over_times": 0.0,
+        "excluded_cell_count_max_per_time": 0,
+        "excluded_cell_count_total_over_times": 0
+      },
+      "DSA": {
+        "excluded_area_m2_max_per_time": 7942748.0,
+        "excluded_area_m2_total_over_times": 15754534.5,
+        "excluded_cell_count_max_per_time": 1,
+        "excluded_cell_count_total_over_times": 2
+      },
+      "DeepC": {
+        "excluded_area_m2_max_per_time": 7942748.0,
+        "excluded_area_m2_total_over_times": 15754534.5,
+        "excluded_cell_count_max_per_time": 1,
+        "excluded_cell_count_total_over_times": 2
+      },
+      "Stratiform": {
+        "excluded_area_m2_max_per_time": 0.0,
+        "excluded_area_m2_total_over_times": 0.0,
+        "excluded_cell_count_max_per_time": 0,
+        "excluded_cell_count_total_over_times": 0
+      }
+    }
+  },
+  "updated_utc": "2026-08-02T10:50:29.389021+00:00"
+}
